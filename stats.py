@@ -1,0 +1,41 @@
+def count_words(file: str) -> int:
+
+    words = file.split()
+    word_count = len(words)
+
+    return word_count
+
+def count_characters(file: str) -> dict:
+
+    character_count = {}
+
+    file = file.lower()
+   
+    for c in range(len(file)):
+        char = file[c]
+
+        if char not in character_count:
+            character_count[char] = 1
+        else: 
+            character_count[char] += 1
+
+    return character_count
+
+def sort_characters(dictionary: dict) -> list:
+
+    characters = []
+
+    for key in dictionary:
+
+        entry = dict(char = key, num = dictionary[key])
+
+        characters.append(entry)
+
+    characters.sort(reverse = True, key = sort_on)
+
+    return characters
+
+def sort_on(dictionary):
+    ### Helper function for sorting lists by dictionary key-value pairs ###
+
+    return dictionary["num"] # {char, num}
